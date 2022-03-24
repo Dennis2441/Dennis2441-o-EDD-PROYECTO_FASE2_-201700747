@@ -40,7 +40,7 @@ public class Carga {
                         System.out.println(capa);
                     }*/
                 }
-            System.out.println("fase2.Carga.carga()");
+            
                 //JOptionPane.showMessageDialog(null, "Carga masiva de imagenes exitosa");
             } catch (FileNotFoundException ex) { 
             Logger.getLogger(Carga.class.getName()).log(Level.SEVERE, null, ex);
