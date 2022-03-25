@@ -155,7 +155,7 @@ public class fase2 extends javax.swing.JFrame {
                  
                  try {
                      long userrr=Long.parseLong(userr.getText());
-             if (entrada.arbolb.buscar(userrr, passwordd.getText())==true) {
+             if (entrada.arbolb.search2(userrr, passwordd.getText())==true) {
                  new cliente().setVisible(true);
                  this.dispose();
              }else{

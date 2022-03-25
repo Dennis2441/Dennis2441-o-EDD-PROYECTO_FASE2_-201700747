@@ -35,7 +35,7 @@ public class Carga {
                    String pass=(String) jsonObject.get("password");
                     
                    long idd=Long.parseLong(id);
-                    ab.insertar(idd, nombre, pass);
+                    ab.insert(idd, pass, nombre);
                     /*for (Object capa : capas) {
                         System.out.println(capa);
                     }*/
