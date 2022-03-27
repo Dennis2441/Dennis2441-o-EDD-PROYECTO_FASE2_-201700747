@@ -12,6 +12,8 @@ package fase2;
 import fase2.Estructura.avl;
 import javax.swing.JFileChooser;
 import fase2.cargaavl;
+import javax.swing.JOptionPane;
+import fase2.Estructura.listacirculardoble;
 public class cliente extends javax.swing.JFrame {
 
     /**
@@ -19,9 +21,12 @@ public class cliente extends javax.swing.JFrame {
      */
      avl av;
      cargaavl ca;
+     cargacircular co;
+     listacirculardoble li;
     public cliente() {
         initComponents();
         ca=new cargaavl();
+        co=new cargacircular();
     }
 
     /**
@@ -34,32 +39,68 @@ public class cliente extends javax.swing.JFrame {
     private void initComponents() {
 
         album = new javax.swing.JButton();
-        imagen = new javax.swing.JButton();
         capa = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
+        album1 = new javax.swing.JButton();
+        album2 = new javax.swing.JButton();
+        album3 = new javax.swing.JButton();
+        capa1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        album.setText("Cargar Album");
+        album.setBackground(new java.awt.Color(0, 0, 0));
+        album.setForeground(new java.awt.Color(0, 204, 153));
+        album.setText("Carga Imagen");
+        album.setBorder(new javax.swing.border.MatteBorder(null));
+        album.setMargin(new java.awt.Insets(4, 14, 2, 14));
 
-        imagen.setText("Cargar Imagen");
-        imagen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                imagenActionPerformed(evt);
-            }
-        });
-
+        capa.setBackground(new java.awt.Color(0, 0, 0));
+        capa.setForeground(new java.awt.Color(51, 0, 255));
         capa.setText("Cargar Capa");
+        capa.setBorder(new javax.swing.border.MatteBorder(null));
         capa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 capaActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Album ");
+        album1.setBackground(new java.awt.Color(0, 0, 0));
+        album1.setForeground(new java.awt.Color(255, 255, 204));
+        album1.setText("Visualizar");
+        album1.setBorder(new javax.swing.border.MatteBorder(null));
+        album1.setMargin(new java.awt.Insets(4, 14, 2, 14));
+        album1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                album1ActionPerformed(evt);
+            }
+        });
+
+        album2.setBackground(new java.awt.Color(0, 0, 0));
+        album2.setForeground(new java.awt.Color(102, 255, 102));
+        album2.setText("Cargar Album");
+        album2.setBorder(new javax.swing.border.MatteBorder(null));
+        album2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                album2ActionPerformed(evt);
+            }
+        });
+
+        album3.setBackground(new java.awt.Color(0, 0, 0));
+        album3.setForeground(new java.awt.Color(102, 255, 255));
+        album3.setText("Reportes");
+        album3.setBorder(new javax.swing.border.MatteBorder(null));
+        album3.setMargin(new java.awt.Insets(4, 14, 2, 14));
+
+        capa1.setBackground(new java.awt.Color(0, 0, 0));
+        capa1.setForeground(new java.awt.Color(51, 0, 255));
+        capa1.setText("Cargar Capa");
+        capa1.setBorder(new javax.swing.border.MatteBorder(null));
+        capa1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                capa1ActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("Return");
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -76,34 +117,49 @@ public class cliente extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(album2, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 170, Short.MAX_VALUE)
+                                .addComponent(album3, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(capa, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(album1, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(16, 16, 16))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(album)
-                            .addComponent(capa)
-                            .addComponent(imagen)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(221, 221, 221)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(843, Short.MAX_VALUE))
+                        .addComponent(album, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(16, 16, 16)
+                    .addComponent(capa1, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(648, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(album)
-                .addGap(18, 18, 18)
-                .addComponent(imagen)
-                .addGap(18, 18, 18)
-                .addComponent(capa)
-                .addContainerGap(240, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(capa, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(album1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(album3, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(album2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addComponent(album, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(16, 16, 16)
+                    .addComponent(capa1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(271, Short.MAX_VALUE)))
         );
 
         pack();
@@ -117,13 +173,6 @@ public class cliente extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jMenu1MouseClicked
 
-    private void imagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imagenActionPerformed
-        // TODO add your handling code here:
-        
-        
-        
-    }//GEN-LAST:event_imagenActionPerformed
-
     private void capaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_capaActionPerformed
         // TODO add your handling code here:
          av=new avl();
@@ -133,7 +182,41 @@ JFileChooser buscar= new JFileChooser();
   String path = buscar.getSelectedFile().getAbsolutePath();
         ca.carga(path, av);
         av.imprimir();
+         
     }//GEN-LAST:event_capaActionPerformed
+
+    private void capa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_capa1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_capa1ActionPerformed
+
+    private void album1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_album1ActionPerformed
+        // TODO add your handling code here:
+        
+        if (li==null) {
+            JOptionPane.showMessageDialog(null,"Hacer Cargas Primero");
+        } else if (li.mostraralbum()==false ) {
+             JOptionPane.showMessageDialog(null,"Hacer Cargas Primero");
+        } else {
+            
+            new Visualizar().setVisible(true);
+        this.dispose();
+        }
+        
+        
+        
+    }//GEN-LAST:event_album1ActionPerformed
+
+    private void album2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_album2ActionPerformed
+        // TODO add your handling code here:
+        li= new listacirculardoble();
+        
+        JFileChooser buscar= new JFileChooser();
+       buscar.showOpenDialog(buscar);
+  String path = buscar.getSelectedFile().getAbsolutePath();
+        co.carga(path, li);
+        
+         
+    }//GEN-LAST:event_album2ActionPerformed
 
     /**
      * 
@@ -173,10 +256,11 @@ JFileChooser buscar= new JFileChooser();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton album;
+    private javax.swing.JButton album1;
+    private javax.swing.JButton album2;
+    private javax.swing.JButton album3;
     private javax.swing.JButton capa;
-    private javax.swing.JButton imagen;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton capa1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables

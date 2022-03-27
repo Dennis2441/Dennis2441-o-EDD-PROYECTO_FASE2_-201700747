@@ -9,6 +9,7 @@ package fase2;
  * @author denni
  */
 import fase2.entrada;
+import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
@@ -54,7 +55,30 @@ Carga ca;
 
         jLabel3.setText("DPI");
 
+        nombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                nombreKeyPressed(evt);
+            }
+        });
+
+        pass2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                pass2KeyPressed(evt);
+            }
+        });
+
+        dpi2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                dpi2KeyPressed(evt);
+            }
+        });
+
         jButton1.setText("Create");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("Return");
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -147,6 +171,126 @@ Carga ca;
         
         ca.carga(path, entrada.arbolb);
     }//GEN-LAST:event_jMenu2MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+if (dpi2.getText().equals("") ||  pass2.getText().equals("") || this.nombre.getText().equals("")) {
+                 JOptionPane.showMessageDialog(null,"Llenar espacio(s)");
+                 
+                 
+                 
+             }else{
+             long dpi= Long.parseLong(dpi2.getText());
+        String nombre=this.nombre.getText();
+        String pass= this.pass2.getText();
+             
+             if (entrada.arbolb.search(dpi)==true) {
+                 JOptionPane.showMessageDialog(null,"Ya Existe Usuario Con El DPI Ingresado");
+             }{
+             
+             entrada.arbolb.insert(dpi, pass, nombre);
+             JOptionPane.showMessageDialog(null,"Usuario Creado");
+             }
+         
+        
+        
+        
+         
+         }        // TODO add your handling code here:
+        
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void nombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreKeyPressed
+        // TODO add your handling code here:
+        
+         if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
+             if (dpi2.getText().equals("") ||  pass2.getText().equals("") || this.nombre.getText().equals("")) {
+                 JOptionPane.showMessageDialog(null,"Llenar espacio(s)");
+                 
+                 
+                 
+             }else{
+             long dpi= Long.parseLong(dpi2.getText());
+        String nombre=this.nombre.getText();
+        String pass= this.pass2.getText();
+             
+             if (entrada.arbolb.search(dpi)==true) {
+                 JOptionPane.showMessageDialog(null,"Ya Existe Usuario Con El DPI Ingresado");
+             }{
+             
+             entrada.arbolb.insert(dpi, pass, nombre);
+             JOptionPane.showMessageDialog(null,"Usuario Creado");
+             }
+         
+        
+        
+        
+         
+         }
+        }
+    }//GEN-LAST:event_nombreKeyPressed
+
+    private void dpi2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dpi2KeyPressed
+        // TODO add your handling code here:
+        
+        
+         if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
+             if (dpi2.getText().equals("") ||  pass2.getText().equals("") || this.nombre.getText().equals("")) {
+                 JOptionPane.showMessageDialog(null,"Llenar espacio(s)");
+                 
+                 
+                 
+             }else{
+             long dpi= Long.parseLong(dpi2.getText());
+        String nombre=this.nombre.getText();
+        String pass= this.pass2.getText();
+             
+             if (entrada.arbolb.search(dpi)==true) {
+                 JOptionPane.showMessageDialog(null,"Ya Existe Usuario Con El DPI Ingresado");
+             }{
+             
+             entrada.arbolb.insert(dpi, pass, nombre);
+             JOptionPane.showMessageDialog(null,"Usuario Creado");
+             }
+         
+        
+        
+        
+         
+         }
+        }
+    }//GEN-LAST:event_dpi2KeyPressed
+
+    private void pass2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pass2KeyPressed
+        // TODO add your handling code here:
+        
+         if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
+             if (dpi2.getText().equals("") ||  pass2.getText().equals("") || this.nombre.getText().equals("")) {
+                 JOptionPane.showMessageDialog(null,"Llenar espacio(s)");
+                 
+                 
+                 
+             }else{
+             long dpi= Long.parseLong(dpi2.getText());
+        String nombre=this.nombre.getText();
+        String pass= this.pass2.getText();
+             
+             if (entrada.arbolb.search(dpi)==true) {
+                 JOptionPane.showMessageDialog(null,"Ya Existe Usuario Con El DPI Ingresado");
+             }{
+             
+             entrada.arbolb.insert(dpi, pass, nombre);
+             JOptionPane.showMessageDialog(null,"Usuario Creado");
+             }
+         
+        
+        
+        
+         
+         }
+        }
+    }//GEN-LAST:event_pass2KeyPressed
 
     /**
      * @param args the command line arguments

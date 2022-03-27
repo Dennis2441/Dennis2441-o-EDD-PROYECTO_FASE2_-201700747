@@ -176,7 +176,7 @@ public class ArbolB {
                 r = r.getLeft();
             else if (val > rval)
                 r = r.getRight();
-            else if (val==rval && r.pass.equals(pass) )
+            else if (val==rval && r.pass.equalsIgnoreCase(pass) )
             
             {    
                 found = true;

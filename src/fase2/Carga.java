@@ -39,6 +39,7 @@ public class Carga {
                     /*for (Object capa : capas) {
                         System.out.println(capa);
                     }*/
+                    JOptionPane.showMessageDialog(null,"Carga Completa");
                 }
             //cargajndsnjds
                 //JOptionPane.showMessageDialog(null, "Carga masiva de imagenes exitosa");

@@ -13,7 +13,9 @@ import javax.swing.JFrame;
  */
 
 import fase2.entrada;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
+
 
 
 public class fase2 extends javax.swing.JFrame {
@@ -40,12 +42,13 @@ public class fase2 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        passwordd = new javax.swing.JTextField();
         userr = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        passwordd = new javax.swing.JPasswordField();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,34 +71,39 @@ public class fase2 extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("jButton3");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+        passwordd.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                passworddKeyPressed(evt);
             }
         });
+
+        jMenu1.setText("Crear Usuario");
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu1MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(281, 281, 281)
-                        .addComponent(passwordd, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(362, 362, 362)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(346, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(370, 370, 370)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3)
-                .addGap(23, 23, 23))
+                    .addComponent(passwordd, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(362, 362, 362)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(370, 370, 370)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jButton2)
+                                .addComponent(jButton1)))))
+                .addContainerGap(356, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(279, 279, 279)
@@ -107,24 +115,18 @@ public class fase2 extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(121, 121, 121)
-                .addComponent(passwordd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(jButton2)
-                        .addGap(30, 30, 30))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3)
-                        .addGap(49, 49, 49)))
+                .addGap(112, 112, 112)
+                .addComponent(passwordd, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
+                .addComponent(jButton2)
+                .addGap(30, 30, 30)
                 .addComponent(jButton1)
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(102, 102, 102)
                     .addComponent(userr, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(283, Short.MAX_VALUE)))
+                    .addContainerGap(260, Short.MAX_VALUE)))
         );
 
         pack();
@@ -133,7 +135,7 @@ public class fase2 extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         System.out.println("");
-         if (userr.getText().equals("admin") && passwordd.getText().equals("EDD2022")) {
+         if (userr.getText().equalsIgnoreCase("admin") && passwordd.getText().equals("EDD2022")) {
              new  CreateUser().setVisible(true);
            //  this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSED));
          //  this.setVisible(false);
@@ -145,8 +147,7 @@ public class fase2 extends javax.swing.JFrame {
              
              if (userr.getText().equals("") ||  passwordd.getText().equals("") ) {
                  JOptionPane.showMessageDialog(null,"Llenar espacio(s)");
-                 new cliente().setVisible(true);
-                 this.dispose();
+                
                  
                  
              } 
@@ -177,19 +178,67 @@ public class fase2 extends javax.swing.JFrame {
        
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        
-        
-        
-    }//GEN-LAST:event_jButton3ActionPerformed
-
     private void userrKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userrKeyPressed
         // TODO add your handling code here:
         
         
 
     }//GEN-LAST:event_userrKeyPressed
+
+    private void passworddKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passworddKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER) {
+            
+         System.out.println("");
+         if (userr.getText().equalsIgnoreCase("admin") && passwordd.getText().equals("EDD2022")) {
+             new  CreateUser().setVisible(true);
+           //  this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSED));
+         //  this.setVisible(false);
+         this.dispose();
+            
+        } else {
+             
+             
+             
+             if (userr.getText().equals("") ||  passwordd.getText().equals("") ) {
+                 JOptionPane.showMessageDialog(null,"Llenar espacio(s)");
+                 
+                 
+                 
+             } 
+             
+             else {
+                 
+                 try {
+                     long userrr=Long.parseLong(userr.getText());
+             if (entrada.arbolb.search2(userrr, passwordd.getText())==true) {
+                 new cliente().setVisible(true);
+                 this.dispose();
+             }else{
+             
+              JOptionPane.showMessageDialog(null,"Usuario no Encontrado");
+             }
+                 } catch (Exception e) {
+                     
+                     JOptionPane.showMessageDialog(null,"Usar DPI como usuario");
+
+                     
+                 }
+ 
+             }
+         }
+             
+        }
+        
+    }//GEN-LAST:event_passworddKeyPressed
+
+    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
+        // TODO add your handling code here:
+        
+        new addcliente().setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_jMenu1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -229,9 +278,10 @@ public class fase2 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField passwordd;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPasswordField passwordd;
     private javax.swing.JTextField userr;
     // End of variables declaration//GEN-END:variables
 }

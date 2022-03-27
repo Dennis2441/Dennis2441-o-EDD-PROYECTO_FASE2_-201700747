@@ -10,6 +10,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -37,6 +38,7 @@ public class cargaavl {
                     /*for (Object capa : capas) {
                         System.out.println(capa);
                     }*/
+                       JOptionPane.showMessageDialog(null,"Carga Completa");
                 }
                 //JOptionPane.showMessageDialog(null, "Carga masiva de imagenes exitosa");
             } catch (FileNotFoundException ex) { 
