@@ -8,12 +8,10 @@ package fase2;
  *
  * @author denni
  */
-
-
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import fase2.Estructura.ArbolB;
+import fase2.Estructura.binario;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -21,8 +19,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import org.json.simple.JSONArray;
-public class Carga {
-    public void carga(String archivo,ArbolB ab) {
+public class CargaBinaria {
+    public void carga(String archivo, binario ab) {
         JSONParser parser = new JSONParser();
         try {
             Object obj = parser.parse(new FileReader(archivo));
@@ -30,17 +28,17 @@ public class Carga {
             
             for (Object o : array) {
                     JSONObject jsonObject = (JSONObject) o;
-                    String id = (String) jsonObject.get("dpi");
-                   String nombre=(String) jsonObject.get("nombre_cliente");
-                   String pass=(String) jsonObject.get("password");
+                    String id = (String) jsonObject.get("id_capa");
+                   
+                   JSONArray pixel=(JSONArray) jsonObject.get("pixeles");
                     
                    long idd=Long.parseLong(id);
-                    ab.insert(idd, pass, nombre);
+                    ab.insertar(idd, pixel);
                     /*for (Object capa : capas) {
                         System.out.println(capa);
                     }*/
-                   
-                } JOptionPane.showMessageDialog(null,"Carga Completa");
+                    
+                }JOptionPane.showMessageDialog(null,"Carga Completa");
             //cargajndsnjds
                 //JOptionPane.showMessageDialog(null, "Carga masiva de imagenes exitosa");
             } catch (FileNotFoundException ex) { 

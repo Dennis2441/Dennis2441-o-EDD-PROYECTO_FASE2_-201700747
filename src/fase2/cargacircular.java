@@ -32,9 +32,11 @@ public class cargacircular {
             JSONArray array = (JSONArray) obj;
             
             for (Object o : array) {
+                h=0;
+                co=0;
                     JSONObject jsonObject = (JSONObject) o;
                     String id = (String) jsonObject.get("nombre_album");
-                    String caa = (String) jsonObject.get("imgs");
+                    String caa = (String) jsonObject.get("imgs").toString();
                     caa=caa.replace("[", "");
                     caa=caa.replace("]", "");
                     String[] ca=caa.split(",");
@@ -46,6 +48,7 @@ public class cargacircular {
                     for (String a : ca) {
                         
                          capas[co]=Integer.parseInt(a);
+                         co=co+1;
                          
                 }
                   
@@ -55,8 +58,8 @@ public class cargacircular {
                     /*for (Object capa : capas) {
                         System.out.println(capa);
                     }*/
-                    JOptionPane.showMessageDialog(null,"Carga Completa");
-                }
+                    
+                }JOptionPane.showMessageDialog(null,"Carga Completa");
                 //JOptionPane.showMessageDialog(null, "Carga masiva de imagenes exitosa");
             } catch (FileNotFoundException ex) { 
             Logger.getLogger(cargaavl.class.getName()).log(Level.SEVERE, null, ex);

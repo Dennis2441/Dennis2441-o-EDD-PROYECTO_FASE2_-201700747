@@ -1,0 +1,14 @@
+digraph G {
+rankdir=TB;
+node [shape=circle];
+ p1[label=" Album 1"];
+ p2[label=" Album 2"];
+ p3[label=" Album 3"];
+p1 -> p2
+p2 -> p1
+p2 -> p3
+p3 -> p2
+p3:s -> p1
+p1 -> p3
+{rank = same p1 p2 p3}
+}

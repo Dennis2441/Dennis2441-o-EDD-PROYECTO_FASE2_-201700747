@@ -38,8 +38,8 @@ public class cargaavl {
                     /*for (Object capa : capas) {
                         System.out.println(capa);
                     }*/
-                       JOptionPane.showMessageDialog(null,"Carga Completa");
-                }
+                       
+                }JOptionPane.showMessageDialog(null,"Carga Completa");
                 //JOptionPane.showMessageDialog(null, "Carga masiva de imagenes exitosa");
             } catch (FileNotFoundException ex) { 
             Logger.getLogger(cargaavl.class.getName()).log(Level.SEVERE, null, ex);

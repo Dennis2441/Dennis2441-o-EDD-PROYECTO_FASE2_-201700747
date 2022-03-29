@@ -224,7 +224,7 @@ public class binario {
             inOrden(raiz);
             System.out.println("\nrecorrido postOrden");
             postOrden(raiz);
-            File file = new File("C:\\Users\\denni\\Desktop\\cliente.dot");
+            File file = new File("C:\\Users\\denni\\Documents\\NetBeansProjects\\fase2\\src\\Imagenes\\binario.txt");
             if (!file.exists()) {
                 file.createNewFile();
             }
@@ -235,15 +235,15 @@ public class binario {
 
             ProcessBuilder pbuilderca;
 
-            pbuilderca = new ProcessBuilder("dot", "-Tsvg", "-o",
-                    "C:\\Users\\denni\\Desktop\\cliente.svg",
-                    "C:\\Users\\denni\\Desktop\\cliente.dot");
+            pbuilderca = new ProcessBuilder("dot", "-Tpng", "-o",
+                    "C:\\Users\\denni\\Documents\\NetBeansProjects\\fase2\\src\\Imagenes\\binario.png",
+                    "C:\\Users\\denni\\Documents\\NetBeansProjects\\fase2\\src\\Imagenes\\binario.txt");
             pbuilderca.redirectErrorStream(true);
             //Ejecuta el proceso
             pbuilderca.start();
 
             File f = new File("" +
-                    "C:\\Users\\denni\\Desktop\\cliente.svg");
+                    "C:\\Users\\denni\\Documents\\NetBeansProjects\\fase2\\src\\Imagenes\\binario.png");
             if (!f.exists()) {
                 f.createNewFile();
             }
