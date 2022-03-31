@@ -11,11 +11,8 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
-/**
- *
- * @author denni
- */
 public class binario {
     
     public String n="";
@@ -27,6 +24,8 @@ public class binario {
     public binario() {
         this.raiz = null;
     }
+    
+   
     public void insertar(long id, JSONArray capas) {
         nodobinario nuevo = new nodobinario(id, capas);
         if (raiz == null) {
@@ -99,6 +98,45 @@ public class binario {
     }
 
      
+     
+      public boolean insertarmatrix(long id ,matriz ma){
+      
+    nodobinario aux = raiz;
+    String cambio="";
+        while (aux.id != id) {
+            if (id < aux.id) {
+                aux = aux.hijoIzquierdo;
+            } else {
+                aux = aux.hijoDerecho;
+            }
+            if (aux == null) {
+                return false;
+            }
+        }
+        
+          for (Object pixele : aux.pixeles) {
+              
+                    JSONObject   jsonObject = (JSONObject) pixele;
+                      System.out.println(pixele);
+                      long co=(long) jsonObject.get("columna");
+                   long fi=(long) jsonObject.get("fila");
+                      
+                      cambio= String.valueOf(fi);
+                      int fil= Integer.parseInt(cambio);
+                      
+                      cambio=String.valueOf(co);
+                      int col= Integer.parseInt(cambio);
+                      String color=(String) jsonObject.get("color");
+                      
+                      System.out.println(col+" "+fil);
+                      
+                      ma.insertar(fil, col, color);
+                      
+                
+          }
+        return true;
+    
+    }
        public boolean eliminar(long id) {
         nodobinario aux = raiz;
         nodobinario padre = raiz;
@@ -224,7 +262,7 @@ public class binario {
             inOrden(raiz);
             System.out.println("\nrecorrido postOrden");
             postOrden(raiz);
-            File file = new File("C:\\Users\\denni\\Documents\\NetBeansProjects\\fase2\\src\\Imagenes\\binario.txt");
+            File file = new File("C:\\Users\\denni\\Desktop\\cliente.dot");
             if (!file.exists()) {
                 file.createNewFile();
             }
@@ -235,15 +273,15 @@ public class binario {
 
             ProcessBuilder pbuilderca;
 
-            pbuilderca = new ProcessBuilder("dot", "-Tpng", "-o",
-                    "C:\\Users\\denni\\Documents\\NetBeansProjects\\fase2\\src\\Imagenes\\binario.png",
-                    "C:\\Users\\denni\\Documents\\NetBeansProjects\\fase2\\src\\Imagenes\\binario.txt");
+            pbuilderca = new ProcessBuilder("dot", "-Tsvg", "-o",
+                    "C:\\Users\\denni\\Desktop\\cliente.svg",
+                    "C:\\Users\\denni\\Desktop\\cliente.dot");
             pbuilderca.redirectErrorStream(true);
             //Ejecuta el proceso
             pbuilderca.start();
 
             File f = new File("" +
-                    "C:\\Users\\denni\\Documents\\NetBeansProjects\\fase2\\src\\Imagenes\\binario.png");
+                    "C:\\Users\\denni\\Desktop\\cliente.svg");
             if (!f.exists()) {
                 f.createNewFile();
             }

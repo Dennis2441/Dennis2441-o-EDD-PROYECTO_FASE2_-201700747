@@ -9,9 +9,10 @@ import java.io.File;
 import java.io.FileWriter;
 
     
-class matriz {
+public class matriz {
     nodomatriz raiz;
-
+public int ro=0;
+    public int coll=0;
     public matriz() {
         raiz = new nodomatriz(-1, -1, "Raiz");
     }
@@ -119,7 +120,7 @@ class matriz {
         nodomatriz nuevo = new nodomatriz(i, j, dato);
         nodomatriz columna = buscar_columna(i);
         nodomatriz fila = buscar_fila(j);
-
+        
         if (columna == null && fila == null) {
             //La fila y la columna no existen
             columna = crearColumna(i);
@@ -142,6 +143,14 @@ class matriz {
             //La fila y la columna existen
             nuevo = insertar_en_fila(nuevo, fila);
             nuevo = insertar_en_columna(nuevo, columna);
+        }
+        
+        if (ro<i) {
+            ro=i;
+        }
+        
+        if (coll<j) {
+            coll=j;
         }
     }
 
@@ -191,8 +200,8 @@ class matriz {
     
     
     public void graficar(){
-        int j=this.ic();
-        int i=this.ifi();
+        int j=coll;
+        int i=ro;
         i=i+1;
         j=j+1;
         String valor;
@@ -238,7 +247,7 @@ class matriz {
         
         
              try {
-             File archivo = new File("C:\\Users\\denni\\Desktop\\cliente.txt");
+             File archivo = new File("C:\\Users\\denni\\Desktop\\circular.txt");
                  FileWriter escritor = new FileWriter(archivo);
             BufferedWriter escritor2 = new BufferedWriter(escritor);
             
@@ -246,7 +255,7 @@ class matriz {
             escritor2.close();
             
             
-            String[] c = {"dot", "-Tpng", "C:\\Users\\denni\\Desktop\\cliente.txt", "-o", "C:\\Users\\denni\\Desktop\\cliente.png"};
+            String[] c = {"dot", "-Tpng", "C:\\Users\\denni\\Desktop\\circular.txt", "-o", "C:\\Users\\denni\\Desktop\\circular.png"};
         Process p = new ProcessBuilder(c).start();
         int err = p.waitFor(); 
          } catch (Exception e) {
@@ -278,6 +287,3 @@ class matriz {
 //        }
 //    }
 }
-
-
-

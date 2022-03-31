@@ -15,22 +15,25 @@ import fase2.cargaavl;
 import javax.swing.JOptionPane;
 import fase2.Estructura.listacirculardoble;
 import fase2.Estructura.binario;
+import fase2.Estructura.prueba;
 public class cliente extends javax.swing.JFrame {
 
     /**
      * Creates new form cliente
      */
-    public static avl av;
-     cargaavl ca;
+    public static prueba.avl av;
+   // public static avl av;
+     prueba.cargaavl ca;
      cargacircular co;
     public static listacirculardoble li;
-     CargaBinaria cb;
-    public static binario ab;
+     prueba.CargaBinaria cb;
+     public static prueba.binario ab2;
+   // public static binario ab;
     public cliente() {
         initComponents();
-        ca=new cargaavl();
+        ca=new prueba.cargaavl();
         co=new cargacircular();
-        cb= new CargaBinaria();
+        cb= new prueba.CargaBinaria();
         
     }
 
@@ -77,7 +80,7 @@ public class cliente extends javax.swing.JFrame {
 
         album1.setBackground(new java.awt.Color(0, 0, 0));
         album1.setForeground(new java.awt.Color(255, 255, 204));
-        album1.setText("Ver Estructuras");
+        album1.setText("Visualizar");
         album1.setBorder(new javax.swing.border.MatteBorder(null));
         album1.setMargin(new java.awt.Insets(4, 14, 2, 14));
         album1.addActionListener(new java.awt.event.ActionListener() {
@@ -104,7 +107,7 @@ public class cliente extends javax.swing.JFrame {
 
         album4.setBackground(new java.awt.Color(0, 0, 0));
         album4.setForeground(new java.awt.Color(255, 255, 204));
-        album4.setText("Visualizar");
+        album4.setText("Ver Estructuras");
         album4.setBorder(new javax.swing.border.MatteBorder(null));
         album4.setMargin(new java.awt.Insets(4, 14, 2, 14));
         album4.addActionListener(new java.awt.event.ActionListener() {
@@ -180,12 +183,12 @@ public class cliente extends javax.swing.JFrame {
     private void capaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_capaActionPerformed
         // TODO add your handling code here:
         
-        ab= new binario();
+        ab2= new prueba.binario();
         JFileChooser buscar= new JFileChooser();
        buscar.showOpenDialog(buscar);
   String path = buscar.getSelectedFile().getAbsolutePath();
   
-  cb.carga(path, ab);
+ cb.carga(path, ab2);
         
          
     }//GEN-LAST:event_capaActionPerformed
@@ -222,7 +225,7 @@ public class cliente extends javax.swing.JFrame {
     private void albumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_albumActionPerformed
         // TODO add your handling code here:
         
-         av=new avl();
+         av=new prueba.avl();
         
 JFileChooser buscar= new JFileChooser();
        buscar.showOpenDialog(buscar);

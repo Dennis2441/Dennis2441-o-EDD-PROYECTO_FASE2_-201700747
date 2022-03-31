@@ -13,19 +13,19 @@ import org.json.simple.JSONArray;
 public class avl {
     
   private nodoavl root;
-
-    public void insert( Comparable x,JSONArray capa ){
-        root = this.insert(x, capa, root);
+ public int[] capav;
+    public void insert( Comparable x,int id,int[] capa ){
+        root = this.insert(x, id,capa, root);
     }
 
     /*
      * x es una instancia de una clase que implementa Comparable
     */
-    private nodoavl insert( Comparable x,JSONArray capa ,nodoavl t ){
+    private nodoavl insert( Comparable x,int id,int[] capa ,nodoavl t ){
         if( t == null )
-            t = new nodoavl( x, capa ,null, null );
+            t = new nodoavl( x, id,capa ,null, null );
         else if( x.compareTo( t.dato ) < 0 ) {
-            t.izquierdo = insert( x, capa,t.izquierdo );
+            t.izquierdo = insert( x, id,capa,t.izquierdo );
             if( height( t.izquierdo ) - height( t.derecho ) == 2 )
                 if( x.compareTo( t.izquierdo.dato ) < 0 )
                     t = rotateWithLeftChild( t ); /* Caso 1 */
@@ -33,7 +33,7 @@ public class avl {
                     t = doubleWithLeftChild( t ); /* Caso 2 */
         }
         else if( x.compareTo( t.dato ) > 0 ) {
-            t.derecho = insert( x, capa,t.derecho );
+            t.derecho = insert( x, id,capa,t.derecho );
             if( height( t.derecho ) - height( t.izquierdo ) == 2 )
                 if( x.compareTo( t.derecho.dato ) > 0 )
                     t = rotateWithRightChild( t ); /* Caso 4 */
@@ -95,6 +95,53 @@ public class avl {
         imprimir(root);
     }
 
+    public boolean search(int id){
+            nodoavl aux = root;  
+    return search(root, id);
+        
+    }
+    
+    
+    public  boolean search(nodoavl nodo, int id){
+    
+    boolean check = false; 
+
+    int cont=0;
+    while ((root != null) && !check)  
+        {  cont=0;
+            
+          //  int com=Integer.parseInt((String) root.dato);
+            if (id< root.id)  {
+                root = root.izquierdo;  
+            
+            }
+            else if (id> root.id)  {                      
+                root = root.izquierdo;  }
+            else  
+            {  
+                check = true;  
+                for (Object object : root.capa) {
+                    cont=cont+1;
+                    
+                }
+                
+                
+                capav= new int[cont];
+                cont=0;
+                for (int object : root.capa) {
+                    
+                    capav[cont]=object;
+                    cont=cont+1;
+                    
+                }
+                break;  
+            }  
+            check = search(root, id);  
+        }  
+        return check;  
+    
+    
+    }
     private void imprimir(nodoavl nodo){
         if ( nodo != null ){
             imprimir(nodo.derecho);

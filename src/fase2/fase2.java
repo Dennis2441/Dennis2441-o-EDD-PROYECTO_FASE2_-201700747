@@ -134,47 +134,49 @@ public class fase2 extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        System.out.println("");
-         if (userr.getText().equalsIgnoreCase("admin") && passwordd.getText().equals("EDD2022")) {
-             new  CreateUser().setVisible(true);
-           //  this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSED));
-         //  this.setVisible(false);
-         this.dispose();
-            
-        } else {
-             
-             
-             
-             if (userr.getText().equals("") ||  passwordd.getText().equals("") ) {
-                 JOptionPane.showMessageDialog(null,"Llenar espacio(s)");
-                
-                 
-                 
-             } 
-             
-             else {
-                 
-                 try {
-                     long userrr=Long.parseLong(userr.getText());
-             if (entrada.arbolb.search2(userrr, passwordd.getText())==true) {
-                 new cliente().setVisible(true);
+//        System.out.println("");
+//         if (userr.getText().equalsIgnoreCase("admin") && passwordd.getText().equals("EDD2022")) {
+//             new  CreateUser().setVisible(true);
+//           //  this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSED));
+//         //  this.setVisible(false);
+//         this.dispose();
+//            
+//        } else {
+//             
+//             
+//             
+//             if (userr.getText().equals("") ||  passwordd.getText().equals("") ) {
+//                 JOptionPane.showMessageDialog(null,"Llenar espacio(s)");
+//                
+//                 
+//                 
+//             } 
+//             
+//             else {
+//                 
+//                 try {
+//                     long userrr=Long.parseLong(userr.getText());
+//             if (entrada.arbolb.search2(userrr, passwordd.getText())==true) {
+//                 new cliente().setVisible(true);
+//                 this.dispose();
+//             }else{
+//             
+//              JOptionPane.showMessageDialog(null,"Usuario no Encontrado");
+//             }
+//                 } catch (Exception e) {
+//                     
+//                     JOptionPane.showMessageDialog(null,"Usar DPI como usuario");
+//
+//                     
+//                 }
+// 
+//             }
+//             
+//             
+//        }
+//        
+new cliente().setVisible(true);
                  this.dispose();
-             }else{
-             
-              JOptionPane.showMessageDialog(null,"Usuario no Encontrado");
-             }
-                 } catch (Exception e) {
-                     
-                     JOptionPane.showMessageDialog(null,"Usar DPI como usuario");
-
-                     
-                 }
- 
-             }
-             
-             
-        }
-        
        
     }//GEN-LAST:event_jButton2ActionPerformed
 

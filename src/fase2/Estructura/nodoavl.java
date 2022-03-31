@@ -13,11 +13,11 @@ import org.json.simple.JSONArray;
 public class nodoavl {
     
    
-    JSONArray capa;
+  int[] capa;
    
     
     
-    
+    int id;
      public Comparable dato;      	 // el dato del nodo
     public nodoavl izquierdo;            // hijo izquierdo
     public nodoavl derecho;              // hijo derecho
@@ -25,18 +25,19 @@ public class nodoavl {
 
     // Constructors
     
-    public nodoavl(int d,JSONArray capa ) {
+    public nodoavl(Comparable d,int id,int[] capa ) {
         this.dato=d;
         this.capa=capa;
-        
+        this.id=id;
         this.izquierdo=null;
         this.derecho=null;
         
     }
 
-    public nodoavl( Comparable dato,JSONArray capa, nodoavl izq, nodoavl der ){
+    public nodoavl( Comparable dato,int id,int[] capa, nodoavl izq, nodoavl der ){
         this.dato = dato;
         this.capa=capa;
+        this.id=id;
         this.izquierdo = izq;
         this.derecho = der;
         height   = 0;               // altura predeterminada

@@ -19,8 +19,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import org.json.simple.JSONArray;
+import fase2.Estructura.prueba;
 public class CargaBinaria {
-    public void carga(String archivo, binario ab) {
+      public void carga(String archivo, prueba.binario ab) {
         JSONParser parser = new JSONParser();
         try {
             Object obj = parser.parse(new FileReader(archivo));
@@ -28,12 +29,17 @@ public class CargaBinaria {
             
             for (Object o : array) {
                     JSONObject jsonObject = (JSONObject) o;
-                    String id = (String) jsonObject.get("id_capa");
+                    long id = (long) jsonObject.get("id_capa");
                    
                    JSONArray pixel=(JSONArray) jsonObject.get("pixeles");
                     
-                   long idd=Long.parseLong(id);
-                    ab.insertar(idd, pixel);
+                  for (Object object : pixel) {
+                       jsonObject = (JSONObject) object;
+                      
+                      long col=(long) jsonObject.get("fila");
+                      
+                }
+                    ab.insertar(id, pixel);
                     /*for (Object capa : capas) {
                         System.out.println(capa);
                     }*/
@@ -42,11 +48,11 @@ public class CargaBinaria {
             //cargajndsnjds
                 //JOptionPane.showMessageDialog(null, "Carga masiva de imagenes exitosa");
             } catch (FileNotFoundException ex) { 
-            Logger.getLogger(Carga.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CargaBinaria.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(Carga.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CargaBinaria.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParseException ex) {
-            Logger.getLogger(Carga.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CargaBinaria.class.getName()).log(Level.SEVERE, null, ex);
         } 
     
     

@@ -10,11 +10,15 @@ package fase2;
  */
 
 import fase2.cliente;
+import fase2.Estructura.matriz;
+import fase2.Estructura.prueba;
 public class Visualizar extends javax.swing.JFrame {
 
     /**
      * Creates new form Visualizar
      */
+    
+    public prueba.matriz imas;
     public Visualizar() {
         initComponents();
         try {
@@ -75,6 +79,16 @@ public class Visualizar extends javax.swing.JFrame {
         });
 
         jButton3.setText("Ver Imagen");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("Return");
         jMenu1.addMenuKeyListener(new javax.swing.event.MenuKeyListener() {
@@ -189,15 +203,38 @@ public class Visualizar extends javax.swing.JFrame {
                 ex=String.valueOf(i);
                 ima.addItem(ex);
             }
-        } else {
-        }
+        } 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
         
+         
         
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+       
+        
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        // TODO add your handling code here:
+        
+        
+          imas= new prueba.matriz();
+        String x = String.valueOf(ima.getSelectedItem());
+        int id=Integer.parseInt(x);
+        cliente.av.imprimir();
+        cliente.av.search(id);
+        for (long i : cliente.av.capav) {
+            
+           cliente.ab2.insertarmatrix(i, imas);
+        }
+        imas.graficar();
+    }//GEN-LAST:event_jButton3MouseClicked
 
     /**
      * @param args the command line arguments

@@ -15,14 +15,17 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+        import fase2.Estructura.prueba;
 
 /**
  *
  * @author denni
  */
 public class cargaavl {
-    
-    public void carga(String archivo,avl av) {
+    int capas[];
+    int h=0;
+    int co=0;
+    public void carga(String archivo,prueba.avl av) {
         
         JSONParser parser = new JSONParser();
         try {
@@ -30,10 +33,29 @@ public class cargaavl {
             JSONArray array = (JSONArray) obj;
             
             for (Object o : array) {
+                h=0;
+                co=0;
                     JSONObject jsonObject = (JSONObject) o;
                     Comparable id = (Comparable) jsonObject.get("id");
-                    JSONArray capas = (JSONArray) jsonObject.get("capas");
-                    av.insert(id, capas);
+                    String idf=  String.valueOf(id);
+                    int id2=Integer.parseInt(idf);
+                 System.out.println(idf);
+                     String caa = (String) String.valueOf(jsonObject.get("capas"));
+                    caa=caa.replace("[", "");
+                    caa=caa.replace("]", "");
+                    String[] ca=caa.split(",");
+                    for (String a : ca) {
+                         h=h+1;
+                         
+                }
+                    capas=new int[h];
+                    for (String a : ca) {
+                        
+                         capas[co]=Integer.parseInt(a);
+                         co=co+1;
+                         
+                }
+                    av.insert(id, id2,capas);
                    
                     /*for (Object capa : capas) {
                         System.out.println(capa);
