@@ -14,7 +14,7 @@ import fase2.Estructura.ArbolB;
 
 public class entrada {
     
-   public static ArbolB arbolb= new ArbolB();
+   public static ArbolB arbolb= new ArbolB(5);
     public static void main(String[] args) {
         
       

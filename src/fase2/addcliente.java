@@ -167,11 +167,11 @@ Carga ca;
         String nombre=this.nombre.getText();
         String pass= this.pass2.getText();
              
-             if (entrada.arbolb.search(dpi)==true) {
+             if (entrada.arbolb.Contain(dpi)==true) {
                  JOptionPane.showMessageDialog(null,"Ya Existe Usuario Con El DPI Ingresado");
              }{
              
-             entrada.arbolb.insert(dpi, pass, nombre);
+             entrada.arbolb.Insert(dpi, pass, nombre);
              JOptionPane.showMessageDialog(null,"Usuario Creado");
              }
          
@@ -196,15 +196,15 @@ Carga ca;
                  
                  
              }else{
-             long dpi= Long.parseLong(dpi2.getText());
+           long dpi= Long.parseLong(dpi2.getText());
         String nombre=this.nombre.getText();
         String pass= this.pass2.getText();
              
-             if (entrada.arbolb.search(dpi)==true) {
+             if (entrada.arbolb.Contain(dpi)==true) {
                  JOptionPane.showMessageDialog(null,"Ya Existe Usuario Con El DPI Ingresado");
              }{
              
-             entrada.arbolb.insert(dpi, pass, nombre);
+             entrada.arbolb.Insert(dpi, pass, nombre);
              JOptionPane.showMessageDialog(null,"Usuario Creado");
              }
          
@@ -225,15 +225,15 @@ Carga ca;
                  
                  
              }else{
-             long dpi= Long.parseLong(dpi2.getText());
+            long dpi= Long.parseLong(dpi2.getText());
         String nombre=this.nombre.getText();
         String pass= this.pass2.getText();
              
-             if (entrada.arbolb.search(dpi)==true) {
+             if (entrada.arbolb.Contain(dpi)==true) {
                  JOptionPane.showMessageDialog(null,"Ya Existe Usuario Con El DPI Ingresado");
              }{
              
-             entrada.arbolb.insert(dpi, pass, nombre);
+             entrada.arbolb.Insert(dpi, pass, nombre);
              JOptionPane.showMessageDialog(null,"Usuario Creado");
              }
          
@@ -259,11 +259,11 @@ Carga ca;
         String nombre=this.nombre.getText();
         String pass= this.pass2.getText();
              
-             if (entrada.arbolb.search(dpi)==true) {
+             if (entrada.arbolb.Contain(dpi)==true) {
                  JOptionPane.showMessageDialog(null,"Ya Existe Usuario Con El DPI Ingresado");
              }{
              
-             entrada.arbolb.insert(dpi, pass, nombre);
+             entrada.arbolb.Insert(dpi, pass, nombre);
              JOptionPane.showMessageDialog(null,"Usuario Creado");
              }
          

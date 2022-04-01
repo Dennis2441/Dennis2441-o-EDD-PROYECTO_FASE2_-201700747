@@ -16,12 +16,14 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.json.simple.parser.ParseException;
+import fase2.Estructura.ArbolB;
 
 public class CreateUser extends javax.swing.JFrame {
 Carga ca;
     /**
      * Creates new form CreateUser
      */
+public long verdpi;
     public CreateUser() {
         initComponents();
         ca=new Carga();
@@ -43,6 +45,9 @@ Carga ca;
         pass2 = new javax.swing.JTextField();
         dpi2 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        clienteee = new javax.swing.JComboBox<>();
+        jButton3 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -77,6 +82,34 @@ Carga ca;
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Modify");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        clienteee.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clienteeeMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                clienteeeMouseEntered(evt);
+            }
+        });
+        clienteee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clienteeeActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Eliminar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
             }
         });
 
@@ -119,19 +152,32 @@ Carga ca;
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(pass2, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(dpi2, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 267, Short.MAX_VALUE)
+                                .addComponent(clienteee, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(267, 267, 267)
-                        .addComponent(jButton1)))
-                .addContainerGap(702, Short.MAX_VALUE))
+                        .addGap(161, 161, 161)
+                        .addComponent(jButton2)
+                        .addGap(31, 31, 31)
+                        .addComponent(jButton1)
+                        .addGap(38, 38, 38)
+                        .addComponent(jButton3)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(253, 253, 253))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(clienteee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -144,7 +190,10 @@ Carga ca;
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pass2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2)
+                    .addComponent(jButton3))
                 .addContainerGap(208, Short.MAX_VALUE))
         );
 
@@ -170,6 +219,22 @@ Carga ca;
         String path = seleccionar.getSelectedFile().getAbsolutePath();
         
         ca.carga(path, entrada.arbolb);
+        
+      entrada.arbolb.Show();
+      
+        String[] mostrar=entrada.arbolb.combo.split(",");
+        
+        for (String string : mostrar) {
+            
+            if (string.equals("null")) {
+                
+            } else {
+                
+                clienteee.addItem(string);
+            }
+            
+        }
+        
     }//GEN-LAST:event_jMenu2MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -183,11 +248,11 @@ if (dpi2.getText().equals("") ||  pass2.getText().equals("") || this.nombre.getT
         String nombre=this.nombre.getText();
         String pass= this.pass2.getText();
              
-             if (entrada.arbolb.search(dpi)==true) {
+             if (entrada.arbolb.Contain(dpi)==true) {
                  JOptionPane.showMessageDialog(null,"Ya Existe Usuario Con El DPI Ingresado");
              }{
              
-             entrada.arbolb.insert(dpi, pass, nombre);
+             entrada.arbolb.Insert(dpi, pass, nombre);
              JOptionPane.showMessageDialog(null,"Usuario Creado");
              }
          
@@ -215,14 +280,13 @@ if (dpi2.getText().equals("") ||  pass2.getText().equals("") || this.nombre.getT
         String nombre=this.nombre.getText();
         String pass= this.pass2.getText();
              
-             if (entrada.arbolb.search(dpi)==true) {
+             if (entrada.arbolb.Contain(dpi)==true) {
                  JOptionPane.showMessageDialog(null,"Ya Existe Usuario Con El DPI Ingresado");
              }{
              
-             entrada.arbolb.insert(dpi, pass, nombre);
+             entrada.arbolb.Insert(dpi, pass, nombre);
              JOptionPane.showMessageDialog(null,"Usuario Creado");
              }
-         
         
         
         
@@ -246,11 +310,11 @@ if (dpi2.getText().equals("") ||  pass2.getText().equals("") || this.nombre.getT
         String nombre=this.nombre.getText();
         String pass= this.pass2.getText();
              
-             if (entrada.arbolb.search(dpi)==true) {
+             if (entrada.arbolb.Contain(dpi)==true) {
                  JOptionPane.showMessageDialog(null,"Ya Existe Usuario Con El DPI Ingresado");
              }{
              
-             entrada.arbolb.insert(dpi, pass, nombre);
+             entrada.arbolb.Insert(dpi, pass, nombre);
              JOptionPane.showMessageDialog(null,"Usuario Creado");
              }
          
@@ -276,11 +340,11 @@ if (dpi2.getText().equals("") ||  pass2.getText().equals("") || this.nombre.getT
         String nombre=this.nombre.getText();
         String pass= this.pass2.getText();
              
-             if (entrada.arbolb.search(dpi)==true) {
+             if (entrada.arbolb.Contain(dpi)==true) {
                  JOptionPane.showMessageDialog(null,"Ya Existe Usuario Con El DPI Ingresado");
              }{
              
-             entrada.arbolb.insert(dpi, pass, nombre);
+             entrada.arbolb.Insert(dpi, pass, nombre);
              JOptionPane.showMessageDialog(null,"Usuario Creado");
              }
          
@@ -291,6 +355,106 @@ if (dpi2.getText().equals("") ||  pass2.getText().equals("") || this.nombre.getT
          }
         }
     }//GEN-LAST:event_pass2KeyPressed
+
+    private void clienteeeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clienteeeMouseClicked
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_clienteeeMouseClicked
+
+    private void clienteeeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clienteeeMouseEntered
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_clienteeeMouseEntered
+
+    private void clienteeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clienteeeActionPerformed
+        // TODO add your handling code here:
+        try {
+            String ver=clienteee.getSelectedItem().toString();
+        int lo=0;
+        String[] ver2=ver.split("-");
+      String ver0=ver2[0];
+       String ver3=ver2[1];
+       
+     long ver4= Long.parseLong(ver3);
+       
+        if (entrada.arbolb.Contain(ver4)) {
+            nombre.setText(ver0);
+            dpi2.setText(ver3);
+            pass2.setText(entrada.arbolb.contra);
+            verdpi=Long.parseLong(ver3);
+        }
+        } catch (Exception e) {
+        }
+       
+    }//GEN-LAST:event_clienteeeActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        
+        
+        
+        
+        try {
+            String jk=dpi2.getText();
+        } catch (Exception e) {
+        }
+        long cambio=Long.parseLong(dpi2.getText());
+        if (entrada.arbolb.Contain(verdpi)) {
+            
+            entrada.arbolb.buscar2(verdpi,cambio, pass2.getText(), nombre.getText());
+            clienteee.removeAllItems();
+        entrada.arbolb.Show();
+      
+        String[] mostrar=entrada.arbolb.combo.split(",");
+        
+        for (String string : mostrar) {
+            
+            if (string.equals("null")) {
+                
+            } else {
+                
+                clienteee.addItem(string);
+            }
+            
+        }
+        } else {
+            JOptionPane.showMessageDialog(null,"Arreglar el DPI");
+        }
+        
+        
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        
+        try {
+            long cambio=Long.parseLong(dpi2.getText());if (entrada.arbolb.Contain(verdpi)) {
+            
+            entrada.arbolb.Remove(cambio);
+            clienteee.removeAllItems();
+        entrada.arbolb.Show();
+      
+        String[] mostrar=entrada.arbolb.combo.split(",");
+        
+        for (String string : mostrar) {
+            
+            if (string.equals("null")) {
+                
+            } else {
+                
+                clienteee.addItem(string);
+            }
+            
+        }
+        } else {
+            JOptionPane.showMessageDialog(null,"Arreglar el DPI");
+        }
+            
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -328,8 +492,11 @@ if (dpi2.getText().equals("") ||  pass2.getText().equals("") || this.nombre.getT
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> clienteee;
     private javax.swing.JTextField dpi2;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
