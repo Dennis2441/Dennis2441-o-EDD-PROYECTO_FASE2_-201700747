@@ -1,0 +1,15 @@
+digraph g{
+rankdir=TB;
+ node[shaped=record,width=0.5,fontsize=12,fillcolor=seashell,style=filled];
+nodo1636803501[label="5"];
+nodo1636803501:c0->nodo1174436399
+nodo1636803501:c1->nodo336973943
+nodo336973943[label="6"];
+nodo336973943:c2->nodo532692053
+nodo532692053[label="9"];
+nodo1174436399[label="2"];
+nodo1174436399:c3->nodo1033236235
+nodo1174436399:c4->nodo1802340311
+nodo1802340311[label="3"];
+nodo1033236235[label="1"];
+}

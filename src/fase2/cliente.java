@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
 import fase2.Estructura.listacirculardoble;
 import fase2.Estructura.binario;
 import fase2.Estructura.prueba;
+import fase2.Estructuras;
 public class cliente extends javax.swing.JFrame {
 
     /**
@@ -232,10 +233,14 @@ JFileChooser buscar= new JFileChooser();
   String path = buscar.getSelectedFile().getAbsolutePath();
         ca.carga(path, av);
         av.imprimir();
+        
+        av.graficar();
     }//GEN-LAST:event_albumActionPerformed
 
     private void album4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_album4ActionPerformed
         // TODO add your handling code here:
+        new Estructuras().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_album4ActionPerformed
 
     /**

@@ -12,6 +12,8 @@ package fase2;
 import fase2.cliente;
 import fase2.Estructura.matriz;
 import fase2.Estructura.prueba;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 public class Visualizar extends javax.swing.JFrame {
 
     /**
@@ -61,6 +63,8 @@ public class Visualizar extends javax.swing.JFrame {
                 albumMouseClicked(evt);
             }
         });
+
+        mostrar.setVerifyInputWhenFocusTarget(false);
 
         jLabel1.setText("Album");
 
@@ -234,6 +238,8 @@ public class Visualizar extends javax.swing.JFrame {
            cliente.ab2.insertarmatrix(i, imas);
         }
         imas.graficar();
+        ImageIcon imageIcon = new ImageIcon(new ImageIcon("C:\\Users\\denni\\Documents\\NetBeansProjects\\fase2\\src\\Imagenes\\circular.png").getImage().getScaledInstance(300, 300, Image.SCALE_DEFAULT));
+        mostrar.setIcon(imageIcon);
     }//GEN-LAST:event_jButton3MouseClicked
 
     /**

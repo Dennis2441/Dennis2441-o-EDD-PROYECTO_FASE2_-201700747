@@ -129,6 +129,9 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="mostrar">
+      <Properties>
+        <Property name="verifyInputWhenFocusTarget" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>

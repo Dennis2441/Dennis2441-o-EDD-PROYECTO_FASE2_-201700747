@@ -1,0 +1,19 @@
+digraph D {
+node[shape= record];
+
+"Arbol.Pagina@57ac4fcc"[label = "<P0>|3999062130101 AUX EDD2|<P1>|7999062130101 AUX EDD6|<P2>"];
+
+"Arbol.Pagina@310066e1"[label = "<P0>|229906 |AUX EDD10 |10edd1s2022<P1>|2999062130101 |AUX EDD9 |9edd1s2022<P2>"];
+
+"Arbol.Pagina@57ac4fcc":P0->"Arbol.Pagina@310066e1";
+
+"Arbol.Pagina@63f953a4"[label = "<P0>|4999062130101 |AUX EDD3|3edd1s2022<P1>|6999062130101 |AUX EDD5|5edd1s2022<P2>"];
+
+"Arbol.Pagina@57ac4fcc":P1->"Arbol.Pagina@63f953a4";
+
+"Arbol.Pagina@72a2c11f"[label = "<P0>|8999062130101 |AUX EDD7|7edd1s2022<P1>|9999062130101 |AUX EDD8|8edd1s2022<P2>"];
+
+"Arbol.Pagina@57ac4fcc":P2->"Arbol.Pagina@72a2c11f";
+
+
+}

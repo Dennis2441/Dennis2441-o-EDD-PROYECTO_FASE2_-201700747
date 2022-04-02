@@ -376,10 +376,10 @@ lt.pass[lt.n++]=lt.pass[k];
     for (int i = 0; i < x.n; i++) {
       System.out.print(x.key[i] + " ");
        if (combo=="") {
-              combo=x.nombre[i]+"-"+String.valueOf(x.key[i]);
+              combo=x.nombre[i]+"-"+String.valueOf(x.key[i])+"-"+x.pass[i];
           } else {
               
-              combo=combo+","+x.nombre[i]+"-"+String.valueOf(x.key[i]);
+              combo=combo+","+x.nombre[i]+"-"+String.valueOf(x.key[i]+"-"+x.pass[i]);
           }
     }
     if (!x.leaf) {
@@ -389,6 +389,22 @@ lt.pass[lt.n++]=lt.pass[k];
     }
   }
 
+  
+  public void graficar(){
+  
+  graficar(root);
+  }
+  
+  private void graficar(Node x){
+  StringBuilder dot = new StringBuilder();
+  dot.append("""
+             digraph D {
+              node[shape= record];   
+             """);
+  dot.append("\"" + x.toString() + "\"" + "[label = \"<P0>");
+  
+  
+  }
   // Check if present
   public boolean Contain(long k) {
     if (this.Search(root, k) != null) {

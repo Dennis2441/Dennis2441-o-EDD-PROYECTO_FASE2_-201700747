@@ -1,0 +1,41 @@
+digraph G{
+label="ABB de capas
+ PreOrden:     3,0,2,1,5,4,
+  InOrden:     0,1,2,3,4,5,
+PostOrden:     1,2,0,4,5,3,"
+fontsize="22";
+labelloc=top;
+labeljust=left;node [
+fontsize = "16"
+shape = "ellipse"
+];
+
+ Nodo934830468
+[label= " <f0>    Id:    3 | Capas:  68 " 
+ shape="record"];
+Nodo934830468 -> Nodo1103753171;
+
+ Nodo1103753171
+[label= " <f0>    Id:    0 | Capas:  131 " 
+ shape="record"];
+Nodo1103753171 -> Nodo1858264049;
+
+ Nodo1858264049
+[label= " <f0>    Id:    2 | Capas:  21 " 
+ shape="record"];
+Nodo1858264049 -> Nodo1184698996;
+
+ Nodo1184698996
+[label= " <f0>    Id:    1 | Capas:  26 " 
+ shape="record"];
+Nodo934830468 -> Nodo1534834748;
+
+ Nodo1534834748
+[label= " <f0>    Id:    5 | Capas:  13 " 
+ shape="record"];
+Nodo1534834748 -> Nodo1543538340;
+
+ Nodo1543538340
+[label= " <f0>    Id:    4 | Capas:  29 " 
+ shape="record"];
+}

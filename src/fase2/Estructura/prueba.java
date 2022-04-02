@@ -42,7 +42,86 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 public class prueba {
 
+    public static class NodoPila{
+    int dato;
+    public Object nodo;
+    public  NodoPila next;
+public NodoPila(Object nodo){
+    
+    this.nodo=nodo;
+    this.next=null;
+    }
+        public void setDato(int dato) {
+            this.dato = dato;
+        }
+
+        public void setNodo(Object nodo) {
+            this.nodo = nodo;
+        }
+
+        public void setNext(NodoPila next) {
+            this.next = next;
+        }
+
+        public int getDato() {
+            return dato;
+        }
+
+        public Object getNodo() {
+            return nodo;
+        }
+
+        public NodoPila getNext() {
+            return next;
+        }
+    
+    
+    
+    }
+   public static class Stack
+{   NodoPila summit;
+        public Stack(){
+     this.summit=null;
+          }
+
+public boolean vacio(){if (summit!=null) {
+    return false;
+        
+    }
+    return true;
+}
+
+public void push(Object nodoarbol){
+
+NodoPila nuevo= new NodoPila(nodoarbol);
+
+nuevo.setNext(this.summit);
+this.summit=nuevo;
+
+
+}
+
+public Object pop(){
+Object nodo=null;
+
+    if (vacio()==true) {
+        
+    } else {
+        
+        nodo=this.summit.getNodo();
+        this.summit=this.summit.getNext();
+    }
+
+
+    return nodo;
+
+
+
+}
+    
+}
 public static class nodoavl {
+    
     
    
     int[] capa;
@@ -78,7 +157,7 @@ public static class nodoavl {
     
 }
 
-public static class avl {
+  public static class avl {
     
   private nodoavl root;
  public int[] capav;
@@ -89,6 +168,78 @@ public static class avl {
     /*
      * x es una instancia de una clase que implementa Comparable
     */
+    
+    
+    
+    
+    public void deleteNode(int item){
+    root=this.deleteNode(root, item);
+    
+    }
+    private nodoavl deleteNode(nodoavl root, int item) {
+
+    // Find the node to be deleted and remove it
+    if (root == null)
+      return root;
+    if (item < root.id)
+      root.izquierdo = deleteNode(root.izquierdo, item);
+    else if (item > root.id)
+      root.derecho = deleteNode(root.derecho, item);
+    else {
+      if ((root.derecho == null) || (root.derecho == null)) {
+        nodoavl temp = null;
+        if (temp == root.izquierdo)
+          temp = root.izquierdo;
+        else
+          temp = root.izquierdo;
+        if (temp == null) {
+          temp = root;
+          root = null;
+        } else
+          root = temp;
+      } else {
+        nodoavl temp = nodeWithMimumValue(root.derecho);
+        root.id = temp.id;
+        root.derecho = deleteNode(root.derecho, temp.id);
+      }
+    }
+    if (root == null)
+      return root;
+
+    // Update the balance factor of each node and balance the tree
+    root.height = max(height(root.izquierdo), height(root.derecho)) + 1;
+    int balanceFactor = getBalanceFactor(root);
+    if (balanceFactor > 1) {
+      if (getBalanceFactor(root.izquierdo) >= 0) {
+        return rotateWithRightChild(root);
+      } else {
+        root.izquierdo = rotateWithLeftChild(root.izquierdo);
+        return rotateWithRightChild(root);
+      }
+    }
+    if (balanceFactor < -1) {
+      if (getBalanceFactor(root.derecho) <= 0) {
+        return rotateWithLeftChild(root);
+      } else {
+        root.derecho = rotateWithRightChild(root.derecho);
+        return rotateWithLeftChild(root);
+      }
+    }
+    return root;
+  }
+    
+    nodoavl nodeWithMimumValue(nodoavl node) {
+    nodoavl current = node;
+    while (current.izquierdo != null)
+      current = current.izquierdo;
+    return current;
+  }
+    
+    int getBalanceFactor(nodoavl N) {
+    if (N == null)
+      return 0;
+    return height(N.izquierdo) - height(N.derecho);
+  }
     private nodoavl insert( Comparable x,int id,int[] capa ,nodoavl t ){
         if( t == null )
             t = new nodoavl( x, id,capa ,null, null );
@@ -128,7 +279,66 @@ public static class avl {
         k1.height = max( height( k1.izquierdo ), k2.height ) + 1;
         return k1;
     }
-
+   public void graficar(){
+    Stack stack= new Stack();
+    stack.push(root);
+    
+   
+    nodoavl nodo;
+    String eti="";
+    String variable="";
+    StringBuilder dot = new StringBuilder();
+//       if (eti=="") {
+//           eti=eti+"""
+//         diagraph g{
+//         rankdir=TB;
+//         node[shaped=record,width=0.5,fontsize=12,fillcolor=seashell,style=filled];
+//         
+//         """;
+//       }
+    dot.append("""
+               digraph g{
+               rankdir=TB;
+                node[shaped=record,width=0.5,fontsize=12,fillcolor=seashell,style=filled];
+               """);
+    int cont=0;
+    
+       while (stack.vacio()==false) {
+           
+                nodo=(nodoavl) stack.pop();
+           
+                   dot.append("nodo"+nodo.hashCode()+"[label=\""+nodo.id+"\"];\n");
+                    
+                  if (nodo.izquierdo!=null) {
+               dot.append("nodo"+nodo.hashCode()+":c"+cont+"->nodo"+nodo.izquierdo.hashCode()+"\n");
+               stack.push(nodo.izquierdo);
+           }
+                    
+                    if (nodo.derecho!=null) {
+               dot.append("nodo"+nodo.hashCode()+":c"+(cont+1)+"->nodo"+nodo.derecho.hashCode()+"\n");
+               stack.push(nodo.derecho);
+           }
+                    
+                    cont+=1;
+       }
+    
+   dot.append("}");
+    
+      try {
+             File archivo = new File("C:\\Users\\denni\\Documents\\NetBeansProjects\\fase2\\src\\Imagenes\\avl.txt");
+                 FileWriter escritor = new FileWriter(archivo);
+            BufferedWriter escritor2 = new BufferedWriter(escritor);
+            
+            escritor2.write(dot.toString());
+            escritor2.close();
+            
+            
+            String[] c = {"dot", "-Tpng", "C:\\Users\\denni\\Documents\\NetBeansProjects\\fase2\\src\\Imagenes\\avl.txt", "-o", "C:\\Users\\denni\\Documents\\NetBeansProjects\\fase2\\src\\Imagenes\\avl.png"};
+        Process p = new ProcessBuilder(c).start();
+        int err = p.waitFor(); 
+         } catch (Exception e) {
+         }
+    }
 
     private static nodoavl rotateWithRightChild( nodoavl k1 ){
         nodoavl k2 = k1.derecho;
@@ -608,7 +818,7 @@ public int ro=0;
         
         
              try {
-             File archivo = new File("C:\\Users\\denni\\Desktop\\circular.txt");
+             File archivo = new File("C:\\Users\\denni\\Documents\\NetBeansProjects\\fase2\\src\\Imagenes\\circular.txt");
                  FileWriter escritor = new FileWriter(archivo);
             BufferedWriter escritor2 = new BufferedWriter(escritor);
             
@@ -616,7 +826,7 @@ public int ro=0;
             escritor2.close();
             
             
-            String[] c = {"dot", "-Tpng", "C:\\Users\\denni\\Desktop\\circular.txt", "-o", "C:\\Users\\denni\\Desktop\\circular.png"};
+            String[] c = {"dot", "-Tpng", "C:\\Users\\denni\\Documents\\NetBeansProjects\\fase2\\src\\Imagenes\\circular.txt", "-o", "C:\\Users\\denni\\Documents\\NetBeansProjects\\fase2\\src\\Imagenes\\circular.png"};
         Process p = new ProcessBuilder(c).start();
         int err = p.waitFor(); 
          } catch (Exception e) {
@@ -674,12 +884,50 @@ public int ro=0;
     public String in="";
     public String ps="";
     nodobinario raiz;
-
+    public int[] veral;
+    int cp=1;//contador 
+    String xs="";
     public binario() {
         this.raiz = null;
     }
     
+   public boolean mostrarbinario(nodobinario aux ){
    
+       if (xs=="") {
+           cp=1;
+           xs=String.valueOf(aux.id);
+           
+       }else{
+       cp=cp+1;
+       xs=String.valueOf(aux.id);
+       }
+      
+         
+        
+         
+
+         
+       
+        if (aux.hijoIzquierdo!=null){
+            
+            recorrer(aux.hijoIzquierdo);
+        }
+        if (aux.hijoDerecho!=null){
+            
+            recorrer(aux.hijoDerecho);
+        }
+                
+            xs="";
+             return true;
+             
+        }
+       
+         
+         
+         
+        
+          
+       
     public void insertar(long id, JSONArray capas) {
         nodobinario nuevo = new nodobinario(id, capas);
         if (raiz == null) {
@@ -908,7 +1156,7 @@ public int ro=0;
         return dot.toString();
     }
 
-    public void grafico() throws IOException {
+    public void graficar()  {
         try {
             System.out.println("recorrido preOrden");
             preOrden(raiz);
@@ -916,7 +1164,7 @@ public int ro=0;
             inOrden(raiz);
             System.out.println("\nrecorrido postOrden");
             postOrden(raiz);
-            File file = new File("C:\\Users\\denni\\Desktop\\cliente.dot");
+            File file = new File("C:\\Users\\denni\\Documents\\NetBeansProjects\\fase2\\src\\Imagenes\\binario.txt");
             if (!file.exists()) {
                 file.createNewFile();
             }
@@ -924,29 +1172,16 @@ public int ro=0;
             BufferedWriter bw = new BufferedWriter(fw);
             bw.write(this.generar_dot());
             bw.close();
-
-            ProcessBuilder pbuilderca;
-
-            pbuilderca = new ProcessBuilder("dot", "-Tsvg", "-o",
-                    "C:\\Users\\denni\\Desktop\\cliente.svg",
-                    "C:\\Users\\denni\\Desktop\\cliente.dot");
-            pbuilderca.redirectErrorStream(true);
-            //Ejecuta el proceso
-            pbuilderca.start();
-
-            File f = new File("" +
-                    "C:\\Users\\denni\\Desktop\\cliente.svg");
-            if (!f.exists()) {
-                f.createNewFile();
-            }
-            Desktop.getDesktop().open(f);
-
-        } catch (FileNotFoundException e) {
-            System.out.println("error");
-        } catch (IOException E) {
-            System.out.println("error");
-        }
+            String[] c = {"dot", "-Tpng", "C:\\Users\\denni\\Documents\\NetBeansProjects\\fase2\\src\\Imagenes\\binario.txt", "-o", "C:\\Users\\denni\\Documents\\NetBeansProjects\\fase2\\src\\Imagenes\\binario.png"};
+            Process p = new ProcessBuilder(c).start();
+        int err = p.waitFor(); 
+         } catch (Exception e) {
+         }
+           
     }
+    
+    
+    
        
     //----
     
