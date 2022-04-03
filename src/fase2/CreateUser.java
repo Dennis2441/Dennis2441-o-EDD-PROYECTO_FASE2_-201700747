@@ -18,6 +18,8 @@ import javax.swing.JOptionPane;
 import org.json.simple.parser.ParseException;
 import fase2.Estructura.ArbolB;
 import Arbol.ArbolBB;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 public class CreateUser extends javax.swing.JFrame {
 Carga ca;
     /**
@@ -51,7 +53,7 @@ public long verdpi;
         clienteee = new javax.swing.JComboBox<>();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
+        display = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -183,7 +185,7 @@ public long verdpi;
                                 .addGap(40, 40, 40)
                                 .addComponent(jButton3)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(83, 83, 83))
         );
         layout.setVerticalGroup(
@@ -191,7 +193,7 @@ public long verdpi;
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(clienteee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -512,6 +514,9 @@ if (dpi2.getText().equals("") ||  pass2.getText().equals("") || this.nombre.getT
         }
         arbol.graphAllTreeB();
         
+        ImageIcon imageIcon = new ImageIcon(new ImageIcon("C:\\Users\\denni\\Documents\\NetBeansProjects\\fase2\\src\\Imagenes\\Arbol-B.png").getImage().getScaledInstance(300, 300, Image.SCALE_DEFAULT));
+        display.setIcon(imageIcon);
+        
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
@@ -551,6 +556,7 @@ if (dpi2.getText().equals("") ||  pass2.getText().equals("") || this.nombre.getT
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> clienteee;
+    private javax.swing.JLabel display;
     private javax.swing.JTextField dpi2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -559,7 +565,6 @@ if (dpi2.getText().equals("") ||  pass2.getText().equals("") || this.nombre.getT
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;

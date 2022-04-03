@@ -51,7 +51,6 @@ public class cliente extends javax.swing.JFrame {
         capa = new javax.swing.JButton();
         album1 = new javax.swing.JButton();
         album2 = new javax.swing.JButton();
-        album3 = new javax.swing.JButton();
         album4 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -100,15 +99,9 @@ public class cliente extends javax.swing.JFrame {
             }
         });
 
-        album3.setBackground(new java.awt.Color(0, 0, 0));
-        album3.setForeground(new java.awt.Color(102, 255, 255));
-        album3.setText("Reportes");
-        album3.setBorder(new javax.swing.border.MatteBorder(null));
-        album3.setMargin(new java.awt.Insets(4, 14, 2, 14));
-
         album4.setBackground(new java.awt.Color(0, 0, 0));
         album4.setForeground(new java.awt.Color(255, 255, 204));
-        album4.setText("Ver Estructuras");
+        album4.setText("Ver Estructuras Y Reporte");
         album4.setBorder(new javax.swing.border.MatteBorder(null));
         album4.setMargin(new java.awt.Insets(4, 14, 2, 14));
         album4.addActionListener(new java.awt.event.ActionListener() {
@@ -134,14 +127,16 @@ public class cliente extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(album2, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(album, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(capa, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 484, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(album3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(album1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(album, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(capa, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(972, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(album2, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(album1, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addContainerGap(972, Short.MAX_VALUE)
@@ -154,15 +149,11 @@ public class cliente extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addComponent(capa, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(album2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(album2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(album1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(album, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(135, 135, 135)
-                .addComponent(album3, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(album1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(16, 16, 16)
@@ -239,8 +230,16 @@ JFileChooser buscar= new JFileChooser();
 
     private void album4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_album4ActionPerformed
         // TODO add your handling code here:
-        new Estructuras().setVisible(true);
+        if (li==null) {
+            JOptionPane.showMessageDialog(null,"Hacer Cargas Primero");
+        } else if (li.mostraralbum()==false ) {
+             JOptionPane.showMessageDialog(null,"Hacer Cargas Primero");
+        } else {
+            
+          new Estructuras().setVisible(true);
         this.dispose();
+        }
+        
     }//GEN-LAST:event_album4ActionPerformed
 
     /**
@@ -283,7 +282,6 @@ JFileChooser buscar= new JFileChooser();
     private javax.swing.JButton album;
     private javax.swing.JButton album1;
     private javax.swing.JButton album2;
-    private javax.swing.JButton album3;
     private javax.swing.JButton album4;
     private javax.swing.JButton capa;
     private javax.swing.JMenu jMenu1;

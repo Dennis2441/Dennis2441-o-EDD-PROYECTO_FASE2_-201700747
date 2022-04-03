@@ -17,6 +17,7 @@ import java.io.FileWriter;
 public class listacirculardoble {
     nodocircular raiz,ultimo;
    public String[] veral;
+   
    public int[] verhol;
     public listacirculardoble() {
         this.raiz = null;
@@ -217,6 +218,56 @@ public class listacirculardoble {
              
              aux=aux.siguiente;
          } while (aux!=raiz);
+         return true;
+     }
+        return false;
+     
+     }
+     
+     
+       public boolean buscar2(String compara,int xx){
+     nodocircular aux=raiz;
+         
+         int cont=0;
+         int cont2=0;
+         if (raiz==null) {
+             
+         } else {
+         
+         do {        
+             
+             
+             if (compara==aux.dato) {
+                 for (int i : aux.hol) {
+                     cont=cont+1;
+                 }
+             
+             }
+                 aux=aux.siguiente;
+             
+             aux=aux.siguiente;
+         } while (aux!=raiz);
+                cont=cont-1;
+         verhol= new int[cont];
+         
+         do {          if (compara==aux.dato) {
+                 for (int i : aux.hol) {
+                        if (i!=xx) {
+                         verhol[cont2]=i;
+                     cont2=cont2+1;
+                     }
+                     
+             }  
+                 
+             
+             
+             }
+   
+             
+             
+             aux=aux.siguiente;
+         } while (aux!=raiz);
+         aux.hol=verhol;
          return true;
      }
         return false;
