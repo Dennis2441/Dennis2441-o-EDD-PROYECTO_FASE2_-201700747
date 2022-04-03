@@ -375,7 +375,7 @@ public static class nodoavl {
 
     public boolean search(int id){
             nodoavl aux = root;  
-    return search(root, id);
+    return search(aux, id);
         
     }
     
@@ -385,7 +385,7 @@ public static class nodoavl {
     boolean check = false; 
 
     int cont=0;
-    while ((root != null) && !check)  
+    while ((nodo != null) && !check)  
         {  cont=0;
             
           //  int com=Integer.parseInt((String) root.dato);
