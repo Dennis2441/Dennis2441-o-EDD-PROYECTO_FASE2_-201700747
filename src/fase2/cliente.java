@@ -181,6 +181,10 @@ public class cliente extends javax.swing.JFrame {
   String path = buscar.getSelectedFile().getAbsolutePath();
   
  cb.carga(path, ab2);
+ 
+ 
+ ab2.recorrer2();
+ ab2.recorrer3();
         
          
     }//GEN-LAST:event_capaActionPerformed

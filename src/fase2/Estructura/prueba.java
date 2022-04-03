@@ -885,7 +885,10 @@ public int ro=0;
     public String ps="";
     nodobinario raiz;
     public int[] veral;
+    public String[] verb;
     int cp=1;//contador 
+    int contador=0;
+    String temp="";
     String xs="";
     public binario() {
         this.raiz = null;
@@ -922,8 +925,15 @@ public int ro=0;
              
         }
        
+         public void recorrer3(){
          
-         
+             try {
+                 System.out.println("");
+                 verb=temp.split(",");
+                 System.out.println("");
+             } catch (Exception e) {
+             }
+         }
          
         
           
@@ -964,6 +974,30 @@ public int ro=0;
 
         }
     }
+    
+    
+    public void recorrer2(){
+        temp="";
+        inOrden2(raiz);
+        System.out.println(temp);
+        System.out.println("");
+    }
+    
+    public void inOrden2(nodobinario r) {
+        if (r != null) {
+            inOrden2(r.hijoIzquierdo);
+            if (temp=="") {
+                temp=String.valueOf(r.id);
+            }else{
+            temp=temp+","+String.valueOf(r.id);
+            }
+            System.out.print(r.id + "   ");
+            inOrden2(r.hijoDerecho);
+
+        }
+    }
+    
+   
      public void preOrden(nodobinario r) {
         if (r != null) {
             System.out.print(r.id + "   ");

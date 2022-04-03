@@ -1,8 +1,8 @@
 digraph G{
 label="ABB de capas
- PreOrden:     3,0,2,1,5,4,
-  InOrden:     0,1,2,3,4,5,
-PostOrden:     1,2,0,4,5,3,"
+ PreOrden:     0,1,2,3,4,5,6,7,8,9,10,11,12,0,1,2,3,4,5,6,7,8,9,10,11,12,
+  InOrden:     0,1,2,3,4,5,6,7,8,9,10,11,12,0,1,2,3,4,5,6,7,8,9,10,11,12,
+PostOrden:     12,11,10,9,8,7,6,5,4,3,2,1,0,12,11,10,9,8,7,6,5,4,3,2,1,0,"
 fontsize="22";
 labelloc=top;
 labeljust=left;node [
@@ -10,32 +10,131 @@ fontsize = "16"
 shape = "ellipse"
 ];
 
- Nodo934830468
-[label= " <f0>    Id:    3 | Capas:  68 " 
+ Nodo363398691
+[label= " <f0>    Id:    0 | Capas:  6186 " 
  shape="record"];
-Nodo934830468 -> Nodo1103753171;
+Nodo363398691 -> Nodo1324011048;
 
- Nodo1103753171
-[label= " <f0>    Id:    0 | Capas:  131 " 
+ Nodo1324011048
+[label= " <f0>    Id:    1 | Capas:  1286 " 
  shape="record"];
-Nodo1103753171 -> Nodo1858264049;
+Nodo1324011048 -> Nodo2060529135;
 
- Nodo1858264049
-[label= " <f0>    Id:    2 | Capas:  21 " 
+ Nodo2060529135
+[label= " <f0>    Id:    2 | Capas:  396 " 
  shape="record"];
-Nodo1858264049 -> Nodo1184698996;
+Nodo2060529135 -> Nodo1639005877;
 
- Nodo1184698996
-[label= " <f0>    Id:    1 | Capas:  26 " 
+ Nodo1639005877
+[label= " <f0>    Id:    3 | Capas:  417 " 
  shape="record"];
-Nodo934830468 -> Nodo1534834748;
+Nodo1639005877 -> Nodo1782762644;
 
- Nodo1534834748
-[label= " <f0>    Id:    5 | Capas:  13 " 
+ Nodo1782762644
+[label= " <f0>    Id:    4 | Capas:  581 " 
  shape="record"];
-Nodo1534834748 -> Nodo1543538340;
+Nodo1782762644 -> Nodo1301415649;
 
- Nodo1543538340
-[label= " <f0>    Id:    4 | Capas:  29 " 
+ Nodo1301415649
+[label= " <f0>    Id:    5 | Capas:  1268 " 
+ shape="record"];
+Nodo1301415649 -> Nodo1046476009;
+
+ Nodo1046476009
+[label= " <f0>    Id:    6 | Capas:  473 " 
+ shape="record"];
+Nodo1046476009 -> Nodo1458778369;
+
+ Nodo1458778369
+[label= " <f0>    Id:    7 | Capas:  426 " 
+ shape="record"];
+Nodo1458778369 -> Nodo715747623;
+
+ Nodo715747623
+[label= " <f0>    Id:    8 | Capas:  117 " 
+ shape="record"];
+Nodo715747623 -> Nodo2001854365;
+
+ Nodo2001854365
+[label= " <f0>    Id:    9 | Capas:  617 " 
+ shape="record"];
+Nodo2001854365 -> Nodo921212194;
+
+ Nodo921212194
+[label= " <f0>    Id:    10 | Capas:  52 " 
+ shape="record"];
+Nodo921212194 -> Nodo2036126151;
+
+ Nodo2036126151
+[label= " <f0>    Id:    11 | Capas:  18 " 
+ shape="record"];
+Nodo2036126151 -> Nodo404596610;
+
+ Nodo404596610
+[label= " <f0>    Id:    12 | Capas:  285 " 
+ shape="record"];
+
+ Nodo363398691
+[label= " <f0>    Id:    0 | Capas:  6186 " 
+ shape="record"];
+Nodo363398691 -> Nodo1324011048;
+
+ Nodo1324011048
+[label= " <f0>    Id:    1 | Capas:  1286 " 
+ shape="record"];
+Nodo1324011048 -> Nodo2060529135;
+
+ Nodo2060529135
+[label= " <f0>    Id:    2 | Capas:  396 " 
+ shape="record"];
+Nodo2060529135 -> Nodo1639005877;
+
+ Nodo1639005877
+[label= " <f0>    Id:    3 | Capas:  417 " 
+ shape="record"];
+Nodo1639005877 -> Nodo1782762644;
+
+ Nodo1782762644
+[label= " <f0>    Id:    4 | Capas:  581 " 
+ shape="record"];
+Nodo1782762644 -> Nodo1301415649;
+
+ Nodo1301415649
+[label= " <f0>    Id:    5 | Capas:  1268 " 
+ shape="record"];
+Nodo1301415649 -> Nodo1046476009;
+
+ Nodo1046476009
+[label= " <f0>    Id:    6 | Capas:  473 " 
+ shape="record"];
+Nodo1046476009 -> Nodo1458778369;
+
+ Nodo1458778369
+[label= " <f0>    Id:    7 | Capas:  426 " 
+ shape="record"];
+Nodo1458778369 -> Nodo715747623;
+
+ Nodo715747623
+[label= " <f0>    Id:    8 | Capas:  117 " 
+ shape="record"];
+Nodo715747623 -> Nodo2001854365;
+
+ Nodo2001854365
+[label= " <f0>    Id:    9 | Capas:  617 " 
+ shape="record"];
+Nodo2001854365 -> Nodo921212194;
+
+ Nodo921212194
+[label= " <f0>    Id:    10 | Capas:  52 " 
+ shape="record"];
+Nodo921212194 -> Nodo2036126151;
+
+ Nodo2036126151
+[label= " <f0>    Id:    11 | Capas:  18 " 
+ shape="record"];
+Nodo2036126151 -> Nodo404596610;
+
+ Nodo404596610
+[label= " <f0>    Id:    12 | Capas:  285 " 
  shape="record"];
 }

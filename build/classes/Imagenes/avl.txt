@@ -1,13 +1,11 @@
 digraph g{
 rankdir=TB;
  node[shaped=record,width=0.5,fontsize=12,fillcolor=seashell,style=filled];
-nodo507513977[label="5"];
-nodo507513977:c0->nodo2020088676
-nodo507513977:c1->nodo798161995
-nodo798161995[label="6"];
-nodo798161995:c2->nodo278716574
-nodo278716574[label="9"];
-nodo2020088676[label="2"];
-nodo2020088676:c4->nodo777282818
-nodo777282818[label="3"];
+nodo259846086[label="5"];
+nodo259846086:c0->nodo1503233572
+nodo259846086:c1->nodo319515899
+nodo319515899[label="6"];
+nodo319515899:c2->nodo1206578755
+nodo1206578755[label="9"];
+nodo1503233572[label="3"];
 }
