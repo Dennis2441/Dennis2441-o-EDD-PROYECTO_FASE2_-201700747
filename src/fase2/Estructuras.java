@@ -13,11 +13,17 @@ import java.awt.Image;
 
 import fase2.Estructura.matriz;
 import fase2.Estructura.prueba;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 public class Estructuras extends javax.swing.JFrame {
 
     /**
@@ -404,10 +410,31 @@ public class Estructuras extends javax.swing.JFrame {
                         co=co+1;
             
             
-        }
-                Comparable id = idd;
-                System.out.println(id);
-                cliente.av.insert(id, idd, ver);
+        }  JSONParser parser = new JSONParser();
+        String hhh="";
+        
+        hhh="[\n";
+        hhh=hhh+"{\n";
+        hhh=hhh+"           \"id\":"+idd+"\n";
+        hhh=hhh+"}\n";
+        hhh=hhh+"]";
+                  
+            try {
+               Object obj = parser.parse(hhh);
+                JSONArray array = (JSONArray) obj;
+                
+                for (Object o : array) {
+                    JSONObject jsonObject = (JSONObject) o;
+                    Comparable id = (Comparable) jsonObject.get("id");
+                    cliente.av.insert(id, idd, ver);
+                }
+//                Comparable id = (Comparable) ll.getText().toString();
+//                System.out.println(id);
+                
+            } catch (ParseException ex) {
+                Logger.getLogger(Estructuras.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                
         }
         
     }//GEN-LAST:event_jButton6ActionPerformed
